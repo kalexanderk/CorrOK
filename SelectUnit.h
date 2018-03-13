@@ -1,0 +1,36 @@
+//---------------------------------------------------------------------------
+
+#ifndef SelectUnitH
+#define SelectUnitH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Grids.hpp>
+//---------------------------------------------------------------------------
+class TSelectForm : public TForm
+{
+__published:	// IDE-managed Components
+	TListBox *ListBoxSelect;
+	TButton *btnSelectSelect;
+	TLabel *lblSelect1;
+	TListBox *ListBoxSelectSelected;
+	TButton *btnSelectClear;
+	TLabel *lblSelect2;
+	TLabel *lblSelect3;
+	TLabel *lblSelect4;
+	TButton *btnSelectClose;
+	TButton *btnSelectJustClose;
+	void __fastcall btnSelectSelectClick(TObject *Sender);
+	void __fastcall btnSelectClearClick(TObject *Sender);
+	void __fastcall btnSelectCloseClick(TObject *Sender);
+	void __fastcall btnSelectJustCloseClick(TObject *Sender);
+private:	// User declarations
+public:		// User declarations
+	__fastcall TSelectForm(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TSelectForm *SelectForm;
+//---------------------------------------------------------------------------
+#endif

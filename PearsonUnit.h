@@ -1,0 +1,35 @@
+//---------------------------------------------------------------------------
+
+#ifndef PearsonUnitH
+#define PearsonUnitH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Grids.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <VCLTee.Chart.hpp>
+#include <VCLTee.Series.hpp>
+#include <VclTee.TeeGDIPlus.hpp>
+#include <VCLTee.TeEngine.hpp>
+#include <VCLTee.TeeProcs.hpp>
+#include <Vcl.Imaging.pngimage.hpp>
+#include <Vcl.Imaging.jpeg.hpp>
+#include <Vcl.Dialogs.hpp>
+//---------------------------------------------------------------------------
+class TPearsonForm : public TForm
+{
+__published:	// IDE-managed Components
+	TStringGrid *StringGridResult;
+	TChart *ChartPearson;
+	TPointSeries *Series1;
+	TImage *imgPearson;
+private:	// User declarations
+public:		// User declarations
+	__fastcall TPearsonForm(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TPearsonForm *PearsonForm;
+//---------------------------------------------------------------------------
+#endif

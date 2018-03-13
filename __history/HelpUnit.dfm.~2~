@@ -1,0 +1,51 @@
+object HelpForm: THelpForm
+  Left = 0
+  Top = 0
+  Caption = 'Help'
+  ClientHeight = 290
+  ClientWidth = 394
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lblHelp1: TLabel
+    Left = 136
+    Top = 222
+    Width = 145
+    Height = 12
+    Caption = 'For more info write to: '
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Terminal'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblHelp2: TLabel
+    Left = 95
+    Top = 240
+    Width = 217
+    Height = 19
+    Caption = 'alex.trump@hotmail.com'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Trajan Pro'
+    Font.Style = []
+    ParentFont = False
+  end
+  object edtHelp: TEdit
+    Left = 8
+    Top = 8
+    Width = 378
+    Height = 185
+    Color = clGradientInactiveCaption
+    ReadOnly = True
+    TabOrder = 0
+  end
+end

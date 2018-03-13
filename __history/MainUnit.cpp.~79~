@@ -1,0 +1,139 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "MainUnit.h"
+#include "AboutUnit.h"
+#include "HelpUnit.h"
+#include "ExcelUnit.h"
+#include "SelectUnit.h"
+#include "ResultUnit.h"
+
+
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TMainForm *MainForm;
+extern System::WideString FileAdress;
+Variant App;
+bool checkbool;
+//---------------------------------------------------------------------------
+__fastcall TMainForm::TMainForm(TComponent* Owner)
+	: TForm(Owner)
+{
+	this->btnShowExcel->Enabled=false;
+	this->btnMethodPearson->Enabled=false;
+	this->btnMenuPearson->Enabled=false;
+	this->btnMethodKendall->Enabled=false;
+	this->btnMenuKendall->Enabled=false;
+	this->btnMenuSelect->Enabled=false;
+	this->btnSelect->Enabled=false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnAboutClick(TObject *Sender)
+{
+	TAboutForm *AboutForm = new TAboutForm(this);
+	AboutForm->ShowModal();
+	delete AboutForm;
+}
+//---------------------------------------------------------------------------
+void __fastcall TMainForm::btnExitClick(TObject *Sender)
+{
+	if (checkbool==true){
+		try{
+			App.OleProcedure("Quit");
+		}
+		catch(...){
+		}
+	}
+	MainForm->Close();
+}
+//---------------------------------------------------------------------------
+void __fastcall TMainForm::btnHelpClick(TObject *Sender)
+{
+	THelpForm *HelpForm = new THelpForm(this);
+	HelpForm->ShowModal();
+	delete HelpForm;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnShowExcelClick(TObject *Sender)
+{
+   TExcelForm *ExcelForm = new TExcelForm(this);
+   ExcelForm->ShowModal();
+   delete ExcelForm;
+   this->btnMenuSelect->Enabled=true;
+   this->btnSelect->Enabled=true;
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnBrowseClick(TObject *Sender)
+{
+	  TOpenDialog* openDialog = new TOpenDialog(this);
+	  openDialog->Title="Browse";
+	  openDialog->InitialDir = GetCurrentDir();
+	  openDialog->Filter =
+		"Microsoft Excel Worksheet|*.xls|Microsoft Excel Worksheet|*.xlsx";
+	  openDialog->FilterIndex = 1;
+	  if (openDialog->Execute()){
+		  ShowMessage("File : "+openDialog->FileName);
+		  FileAdress=openDialog->FileName;
+		  btnShowExcel->Enabled=true;
+	  }
+	  else Application->MessageBox(L"Open file was cancelled", L"Cancelled", MB_OK+MB_ICONERROR);
+	  delete openDialog;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnSelectClick(TObject *Sender)
+{
+	TSelectForm *SelectForm = new TSelectForm(this);
+	SelectForm->ShowModal();
+	delete SelectForm;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnMenuSelectClick(TObject *Sender)
+{
+	TSelectForm *SelectForm = new TSelectForm(this);
+	SelectForm->ShowModal();
+	delete SelectForm;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnMethodPearsonClick(TObject *Sender)
+{
+	TResultForm *ResultForm = new TResultForm(this);
+	ResultForm->ShowModal();
+	delete ResultForm;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnMethodKendallClick(TObject *Sender)
+{
+	TResultForm *ResultForm = new TResultForm(this);
+	ResultForm->ShowModal();
+	delete ResultForm;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnMenuPearsonClick(TObject *Sender)
+{
+	TResultForm *ResultForm = new TResultForm(this);
+	ResultForm->ShowModal();
+	delete ResultForm;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnMenuKendallClick(TObject *Sender)
+{
+	TResultForm *ResultForm = new TResultForm(this);
+	ResultForm->ShowModal();
+	delete ResultForm;
+}
+//---------------------------------------------------------------------------
+
+

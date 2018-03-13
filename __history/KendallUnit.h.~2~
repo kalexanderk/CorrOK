@@ -1,0 +1,29 @@
+//---------------------------------------------------------------------------
+
+#ifndef KendallUnitH
+#define KendallUnitH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+//---------------------------------------------------------------------------
+class TKendallForm : public TForm
+{
+__published:	// IDE-managed Components
+	TListBox *ListBoxKendall;
+	TButton *btnKendallSelect;
+	TLabel *lblPearson1;
+	TListBox *ListBoxKendallSelected;
+	TButton *btnKendallClear;
+	TLabel *lblPearson2;
+	TLabel *lblPearson3;
+	TLabel *lblPearson4;
+private:	// User declarations
+public:		// User declarations
+	__fastcall TKendallForm(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TKendallForm *KendallForm;
+//---------------------------------------------------------------------------
+#endif

@@ -1,0 +1,27 @@
+//---------------------------------------------------------------------------
+
+#ifndef HelpUnitH
+#define HelpUnitH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Imaging.pngimage.hpp>
+//---------------------------------------------------------------------------
+class THelpForm : public TForm
+{
+__published:	// IDE-managed Components
+	TEdit *edtHelp;
+	TLabel *lblHelp1;
+	TLabel *lblHelp2;
+	TImage *imgExampleTable;
+private:	// User declarations
+public:		// User declarations
+	__fastcall THelpForm(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE THelpForm *HelpForm;
+//---------------------------------------------------------------------------
+#endif

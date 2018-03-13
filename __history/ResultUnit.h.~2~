@@ -1,0 +1,24 @@
+//---------------------------------------------------------------------------
+
+#ifndef ResultUnitH
+#define ResultUnitH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Grids.hpp>
+//---------------------------------------------------------------------------
+class TResultForm : public TForm
+{
+__published:	// IDE-managed Components
+	TStringGrid *StringGridResult;
+	TLabel *lblResult;
+private:	// User declarations
+public:		// User declarations
+	__fastcall TResultForm(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TResultForm *ResultForm;
+//---------------------------------------------------------------------------
+#endif

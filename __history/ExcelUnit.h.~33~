@@ -1,0 +1,32 @@
+//---------------------------------------------------------------------------
+
+#ifndef ExcelUnitH
+#define ExcelUnitH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Data.DB.hpp>
+#include <Data.Win.ADODB.hpp>
+#include <Vcl.DBGrids.hpp>
+#include <Vcl.Grids.hpp>
+#include <Vcl.Dialogs.hpp>
+//---------------------------------------------------------------------------
+class TExcelForm : public TForm
+{
+__published:	// IDE-managed Components
+	TStringGrid *StringGridExcel;
+private:	// User declarations
+	Variant Sh;
+	bool checkbool;
+	System::WideString filename;
+
+public:		// User declarations
+	__fastcall TExcelForm(TComponent* Owner);
+	void __fastcall ExcelInit(System::WideString File);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TExcelForm *ExcelForm;
+//---------------------------------------------------------------------------
+#endif

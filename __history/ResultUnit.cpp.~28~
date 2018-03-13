@@ -1,0 +1,27 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "ResultUnit.h"
+#include "MainUnit.h"
+#include "ExcelUnit.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TResultForm *ResultForm;
+//---------------------------------------------------------------------------
+
+
+__fastcall TResultForm::TResultForm(TComponent* Owner)
+	: TForm(Owner)
+{
+	int count = MainForm->ListBoxMain->Count;
+	this->StringGridResult->ColCount = count+1;
+	this->StringGridResult->RowCount = count+1;
+	for (int j = 0; j < count; j++) {
+		this->StringGridResult->Cells[j+1][0] = MainForm->ListBoxMain->Items->Strings[j];
+		this->StringGridResult->Cells[0][j+1] = MainForm->ListBoxMain->Items->Strings[j];
+	}
+}
+//---------------------------------------------------------------------------

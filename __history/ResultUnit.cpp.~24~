@@ -1,0 +1,66 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "ResultUnit.h"
+#include "MainUnit.h"
+#include "ExcelUnit.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TResultForm *ResultForm;
+extern bool metod;
+extern int iRows, iColumns;
+//---------------------------------------------------------------------------
+
+double cov_func(int i, int j, int n){
+	double xm = 0;
+	double ym = 0;
+	for (int count = 0; count < n; count++) {
+		xm += StrToInt(this->StringGridResHelp->Cells[i][count+1]);
+		ym += StrToInt(this->StringGridResHelp->Cells[j][count+1]);
+	}
+	xm=xm/n;
+	ym=ym/n;
+
+	double cov = 0;
+	for (int count = 0; count < n; count++) {
+		cov += (StrToInt(this->StringGridResHelp->Cells[i][count+1]) -
+		xm)*(StrToInt(this->StringGridResHelp->Cells[j][count+1]) - ym);
+    }
+
+	return cov/(n-1);
+}
+//Sh.OlePropertyGet("Cells", count+2, i+1)
+
+
+__fastcall TResultForm::TResultForm(TComponent* Owner)
+	: TForm(Owner)
+{
+	//help work
+
+	this->StringGridExcel->ColCount=iColumns;
+	this->StringGridExcel->RowCount=iRows;
+	for (int i = 0; i < iColumns; i++) {
+		for (int j = 0; j < iRows; j++) {
+			this->StringGridExcel->Cells[i][j]=Sh.OlePropertyGet("Cells", j+1, i+1);
+		}
+	}
+	//help work
+
+
+	int count = MainForm->ListBoxMain->Count;
+	this->StringGridResult->ColCount = count+1;
+	this->StringGridResult->RowCount = count+1;
+	for (int j = 0; j < count; j++) {
+		this->StringGridResult->Cells[j+1][0] = MainForm->ListBoxMain->Items->Strings[j];
+		this->StringGridResult->Cells[0][j+1] = MainForm->ListBoxMain->Items->Strings[j];
+	}
+	int n = iRows;
+	double rtr=cov_func(1, 2, n);
+	if (metod=0) {
+
+	}
+}
+//---------------------------------------------------------------------------

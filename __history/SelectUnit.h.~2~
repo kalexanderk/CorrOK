@@ -1,0 +1,32 @@
+//---------------------------------------------------------------------------
+
+#ifndef SelectUnitH
+#define SelectUnitH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Grids.hpp>
+//---------------------------------------------------------------------------
+class TPearsonForm : public TForm
+{
+__published:	// IDE-managed Components
+	TListBox *ListBoxPearson;
+	TButton *btnPearsonSelect;
+	TLabel *lblPearson1;
+	TListBox *ListBoxPearsonSelected;
+	TButton *btnPearsonClear;
+	TLabel *lblPearson2;
+	TLabel *lblPearson3;
+	TLabel *lblPearson4;
+	void __fastcall btnPearsonSelectClick(TObject *Sender);
+	void __fastcall btnPearsonClearClick(TObject *Sender);
+private:	// User declarations
+public:		// User declarations
+	__fastcall TPearsonForm(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TPearsonForm *PearsonForm;
+//---------------------------------------------------------------------------
+#endif

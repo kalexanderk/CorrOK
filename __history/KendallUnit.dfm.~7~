@@ -1,0 +1,26 @@
+object KendallForm: TKendallForm
+  Left = 0
+  Top = 0
+  Caption = 'Result (Kendall'#39's tau-b)'
+  ClientHeight = 431
+  ClientWidth = 495
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object StringGridKendall: TStringGrid
+    Left = 136
+    Top = 16
+    Width = 198
+    Height = 78
+    ColCount = 3
+    RowCount = 3
+    TabOrder = 0
+  end
+end
